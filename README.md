@@ -12,5 +12,5 @@
 	. pip install uuid
 
 **In the main.py**
-	. Assign your telegram id to the variable `Admin_id`
-	. Add your bot API in the main function in the string `"YOUR-API"`
+	- Assign your telegram id to the variable `Admin_id`
+	- Add your bot API in the main function in the string `"YOUR-API"`
