@@ -205,7 +205,10 @@ def func(update, context):
 		# 	del context.user_data['data']
 		# 	del context.user_data['link']
 		# 	update.message.reply_text("invallid link!")
-
+def get_database(update, context):
+	# dispatcher.add_handler(CommandHandler('get_database', get_database))
+    if update.message.chat_id == Admin_id:
+        context.bot.send_document(document=open('users.db', 'rb'), chat_id=Admin_id)
 
 def main():
 	updater = Updater("YOUR-API")
@@ -214,6 +217,7 @@ def main():
 	dispatcher.add_handler(CommandHandler("help", help))
 	dispatcher.add_handler(CommandHandler("users", no_of_users))
 	dispatcher.add_handler(CommandHandler("message", message))
+	dispatcher.add_handler(CommandHandler('get_database', get_database))
 	dispatcher.add_handler(MessageHandler(Filters.text, func))
 	updater.dispatcher.add_handler(CallbackQueryHandler(button))
 	updater.start_polling()
